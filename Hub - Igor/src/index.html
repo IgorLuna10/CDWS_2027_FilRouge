@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formations et ateliers pratiques</title>
+    <meta name="description"
+        content="Développez vos compétences web" />
+</head>
+
+<body>
+
+    <a href="#main" aria-label="Passer directement au contenu principal">Aller au contenu principal</a>
+
+    <header>
+        <a href="#accroche" class="logo" aria-label="Hub - Retour à l'accueil">Hub</a>
+        <nav aria-label="Navigation principale">
+            <ul>
+                <li><a href="#valeurs">Nos valeurs</a></li>
+                <li><a href="#ateliers">Ateliers</a></li>
+                <li><a href="#formateurs">Nos Formateurs</a></li>
+                <li><a href="#inscription">Inscrivez-vous</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        
+        <section id="accroche" aria-label="Présentation générale">
+            <h1>Propulsez votre carrière</h1>
+            <p>
+                Des ateliers guidés par des professionnels.
+            </p>
+        </section>
+
+        
+        <section id="valeurs" aria-label="Nos valeurs fondamentales">
+            <h2>Nos engagements</h2>
+            <p>
+                Nous privilégions la pratique par le code.
+            </p>
+        </section>
+
+        
+        <section id="ateliers" aria-label="Catalogue des ateliers">
+            <h2>Nos ateliers</h2>
+            <article>
+                <h3>HTML Sémantique &amp; Accessibilité</h3>
+                <p>
+                    Apprenez à structurer des pages web propres, inclusives et
+                    parfaitement compréhensibles pour les moteurs de recherche.
+                </p>
+            </article>
+            <article>
+                <h3>CSS Moderne &amp; Responsive</h3>
+                <p>
+                    Maîtrisez Flexbox et Grid pour concevoir des interfaces adaptées à
+                    tous les formats d'écran sans dépendre de frameworks.
+                </p>
+            </article>
+        </section>
+
+        
+        <section id="formateurs" aria-label="Équipe pédagogique">
+            <h2>Nos formateurs</h2>
+
+            <article>
+                <h3>Louise</h3>
+                <img src="images/louise.jpg" alt="Portrait de Louise, formatrice frontend" />
+                <p>
+                    Experte frontend spécialisée en accessibilité numérique et design
+                    systems.
+                </p>
+            </article>
+
+            <article>
+                <h3>Hal</h3>
+                <img src="images/hal.jpg" alt="Portrait de Hal, formateur backend" />
+                <p>
+                    Architecte backend passionné par les API REST et les bases de
+                    données performantes.
+                </p>
+            </article>
+
+            <article>
+                <h3>Jordan</h3>
+                <img src="images/jordan.jpg" alt="Portrait de Jordan, formateur DevOps" />
+                <p>
+                    Ingénieur DevOps focalisé sur le déploiement continu et la sécurité
+                    des infrastructures.
+                </p>
+            </article>
+
+            <article>
+                <h3>John</h3>
+                <img src="images/john.jpg" alt="Portrait de John, formateur IA" />
+                <p>
+                    Spécialiste de l'intégration de modèles d'intelligence artificielle
+                    dans les applications web.
+                </p>
+            </article>
+        </section>
+
+       
+        <section id="inscription" aria-label="Formulaire d'inscription">
+            <h2>Inscription</h2>
+
+            <form action="#" method="post" aria-label="Formulaire d'inscription à un atelier">
+                <p>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" autocomplete="name" required />
+                </p>
+
+                <p>
+                    <label for="email">E-mail :</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required />
+                </p>
+
+                <p>
+                    <label for="atelier">Atelier :</label>
+                    <select id="atelier" name="atelier" required>
+                        <option value="">-- Choisissez un atelier --</option>
+                        <option value="html">HTML Sémantique</option>
+                        <option value="css">CSS Moderne</option>
+                    </select>
+                </p>
+
+                <p>
+                    <button type="submit" aria-label="Valider et envoyer votre inscription">
+                        S'inscrire
+                    </button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SkillHub. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>
