@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrekHub | Formations Web &amp; Nouvelles Technologies</title>
+    <meta name="description" content="Développez vos compétences web et repoussez les frontières du code avec TrekHub." />
+
+    <!-- Préchargement de la police du titre (Montserrat 700 / Bold) -->
+    <link 
+        rel="preload" 
+        href="assets/polices/montserrat-v31-latin-700.woff2" 
+        as="font" 
+        type="font/woff2" 
+        crossorigin 
+    />
+
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="css/index.css" />
+
+    <!-- Scripts différés (defer) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- Lien d'évitement accessibilité -->
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <!-- En-tête -->
+    <header>
+        <a href="#accroche" class="logo" aria-label="TrekHub - Retour à l'accueil">TrekHub</a>
+        <nav aria-label="Navigation principale">
+            <ul>
+                <li><a href="#valeurs">Nos Directives</a></li>
+                <li><a href="#ateliers">Ateliers</a></li>
+                <li><a href="#formateurs">L'Équipe</a></li>
+                <li><a href="#inscription">Rejoindre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <!-- Section Accroche -->
+        <section id="accroche" aria-label="Présentation générale">
+            <h1>Engagez votre potentiel</h1>
+            <img src="assets/images/TrekHub.jpeg" alt = "Trek Hub office in space">
+            <p>
+                Des formations guidées par des professionnels pour repousser les frontières 
+                du développement web et concevoir des applications durables et accessibles.
+            </p>
+            <div class="cta-actions">
+                <a href="#ateliers" class="btn">Découvrir les ateliers</a>
+                <a href="#inscription" class="btn btn-primary">S'inscrire</a>
+            </div>
+        </section>
+
+        <!-- Section Valeurs / Directives -->
+        <section id="valeurs" aria-label="Nos valeurs fondamentales">
+            <h2>Nos Directives</h2>
+            <ul class="valeurs">
+
+                <!-- 1. Innovation -->
+                <li class="valeur">
+                    <svg class="valeur-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                    <h3>Innovation</h3>
+                    <p>Explorer de nouvelles méthodes et intégrer les technologies d'avant-garde pour transformer l'apprentissage.</p>
+                </li>
+
+                <!-- 2. Excellence -->
+                <li class="valeur">
+                    <svg class="valeur-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="8" r="6" />
+                        <path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1" />
+                    </svg>
+                    <h3>Excellence</h3>
+                    <p>Appliquer une rigueur technique exemplaire sur chaque ligne de code pour bâtir des projets solides.</p>
+                </li>
+
+                <!-- 3. Esprit d'équipage -->
+                <li class="valeur">
+                    <svg class="valeur-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                    <h3>Esprit d'équipage</h3>
+                    <p>Valoriser la diversité des profils, l'intelligence collective et l'entraide tout au long du parcours.</p>
+                </li>
+
+                <!-- 4. Progression continue -->
+                <li class="valeur">
+                    <svg class="valeur-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                        <polyline points="16 7 22 7 22 13" />
+                    </svg>
+                    <h3>Progression continue</h3>
+                    <p>Faire évoluer continuellement ses compétences face aux mutations constantes de l'écosystème web.</p>
+                </li>
+
+                <!-- 5. Intégrité -->
+                <li class="valeur">
+                    <svg class="valeur-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <polyline points="9 12 11 14 15 10" />
+                    </svg>
+                    <h3>Intégrité &amp; Éthique</h3>
+                    <p>Défendre un web ouvert, transparent, respectueux des données et centré sur l'humain.</p>
+                </li>
+
+                <!-- 6. Accessibilité universelle -->
+                <li class="valeur">
+                    <svg class="valeur-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" />
+                        <circle cx="12" cy="6.5" r="1.5" />
+                        <path d="M6 10.5h12" />
+                        <path d="M12 10.5v5.5" />
+                        <path d="m9 20 3-4 3 4" />
+                    </svg>
+                    <h3>Accessibilité universelle</h3>
+                    <p>Rendre la technologie accessible à tous, sans barrière matérielle, physique ou géographique.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section Ateliers -->
+        <section id="ateliers" aria-label="Catalogue des ateliers">
+            <h2>Nos ateliers</h2>
+            <div class="workshops-list">
+                <article class="workshop-item">
+                    <h3>HTML Sémantique &amp; Accessibilité</h3>
+                    <p>
+                        Structurez des pages robustes, inclusives et adaptées à tous les outils de navigation et d'assistance.
+                    </p>
+                </article>
+
+                <article class="workshop-item">
+                    <h3>CSS Moderne &amp; Interfaces Évolutives</h3>
+                    <p>
+                        Maîtrisez Flexbox, CSS Grid et les variables pour concevoir des mises en page réactives et ergonomiques.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section Formateurs -->
+      <!-- Section Formateurs -->
+<section id="formateurs" aria-label="Équipe pédagogique">
+    <h2>L'équipe pédagogique</h2>
+    <div class="instructors-list">
+        <article class="instructor-card">
+            <img 
+                src="assets/images/Kirk/Kirk 800w.webp"
+                srcset="
+                    assets/images/Kirk/Kirk 400w.webp 400w,
+                    assets/images/Kirk/Kirk 800w.webp 800w,
+                    assets/images/Kirk/Kirk 1600w.webp 1600w
+                "
+                sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 300px"
+                width="400" 
+                height="400" 
+                loading="lazy"
+                alt="Portrait de Kirk, formatrice Lead Frontend" 
+            />
+            <h3>Kirk</h3>
+            <p class="role">Lead Frontend &amp; Accessibilité</p>
+            <p>Experte en design systems inclusifs et architectures d'interfaces modernes.</p>
+        </article>
+
+        <article class="instructor-card">
+            <img 
+                src="assets/images/Picard/Picard 800w.webp"
+                srcset="
+                    assets/images/Picard/Picard 400w.webp 400w,
+                    assets/images/Picard/Picard 800w.webp 800w,
+                    assets/images/Picard/Picard 1600w.webp 1600w
+                "
+                sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 300px"
+                width="400" 
+                height="400" 
+                loading="lazy"
+                alt="Portrait de Picard, formateur Architecte Backend" 
+            />
+            <h3>Picard</h3>
+            <p class="role">Architecte Backend &amp; Systèmes</p>
+            <p>Spécialiste de la résilience serveur, des API performantes et des bases de données.</p>
+        </article>
+
+        <article class="instructor-card">
+            <img 
+                src="assets/images/Spock/Spock 800w.webp"
+                srcset="
+                    assets/images/Spock/Spock 400w.webp 400w,
+                    assets/images/Spock/Spock 800w.webp 800w,
+                    assets/images/Spock/Spock 1600w.webp 1600w
+                "
+                sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 300px"
+                width="400" 
+                height="400" 
+                loading="lazy"
+                alt="Portrait de Spock, formateur Ingénieur DevOps" 
+            />
+            <h3>Spock</h3>
+            <p class="role">Ingénieur DevOps &amp; Cloud</p>
+            <p>Passionné par les pipelines CI/CD automatisés et la sécurité des environnements web.</p>
+        </article>
+
+        <article class="instructor-card">
+            <img 
+                src="assets/images/Deanna/Deanna 800w.webp"
+                srcset="
+                    assets/images/Deanna/Deanna 400w.webp 400w,
+                    assets/images/Deanna/Deanna 800w.webp 800w,
+                    assets/images/Deanna/Deanna 1600w.webp 1600w
+                "
+                sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 300px"
+                width="400" 
+                height="400" 
+                loading="lazy"
+                alt="Portrait de Deanna, formatrice Spécialiste IA & Data" 
+            />
+            <h3>Deanna</h3>
+            <p class="role">Spécialiste IA &amp; Data</p>
+            <p>Accompagne l'intégration de modèles d'intelligence artificielle dans les outils du quotidien.</p>
+        </article>
+    </div>
+</section>
+
+        <!-- Section Inscription -->
+        <section id="inscription" aria-label="Formulaire d'inscription">
+            <h2>Rejoindre l'aventure</h2>
+
+            <form action="#" method="post" aria-label="Formulaire d'inscription à un atelier">
+                <p>
+                    <label for="nom">Nom complet :</label>
+                    <input type="text" id="nom" name="nom" autocomplete="name" required />
+                </p>
+
+                <p>
+                    <label for="email">Adresse e-mail :</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required />
+                </p>
+
+                <p>
+                    <label for="atelier">Atelier souhaité :</label>
+                    <select id="atelier" name="atelier" required>
+                        <option value="">-- Choisissez un atelier --</option>
+                        <option value="html">HTML Sémantique &amp; Accessibilité</option>
+                        <option value="css">CSS Moderne &amp; Interfaces Évolutives</option>
+                    </select>
+                </p>
+
+                <p>
+                    <button type="submit" aria-label="Valider votre inscription">
+                        Confirmer l'inscription
+                    </button>
+                </p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TrekHub. Bâtir un web ouvert, accessible et tourné vers l'avenir.</p>
+    </footer>
+</body>
+
+</html>
