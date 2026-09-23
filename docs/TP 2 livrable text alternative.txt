@@ -1,0 +1,10 @@
+### Liste des textes de remplacement par catégorie (TP2 - TrekHub)
+1. **Catégorie 1 : Image informative (Accroche)**
+   - Hero Banner (`TrekHub.jpeg`) : `alt="Trek Hub office in space"`
+2. **Catégorie 2 : Images de personnes (Portraits des formateurs)**
+   - Kirk : `alt="Portrait de Kirk, formatrice Lead Frontend"`
+   - Picard : `alt="Portrait de Picard, formateur Architecte Backend"`
+   - Spock : `alt="Portrait de Spock, formateur Ingénieur DevOps"`
+   - Deanna : `alt="Portrait de Deanna, formatrice Spécialiste IA & Data"`
+3. **Catégorie 3 : Médias décoratifs (6 icônes SVG de la section Valeurs)**
+   - SVG Inline (Innovation, Excellence, Équipage, Progression, Intégrité, Accessibilité) : `aria-hidden="true"` (Aucun texte alternatif redondant requis car l'intitulé est déjà lu via le titre h3).
