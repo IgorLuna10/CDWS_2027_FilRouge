@@ -1,0 +1,83 @@
+### Persona 1 · L'Apprenante (Cadette)
+
+**Profil :** Maya, 29 ans, en reconversion professionnelle vers les métiers du web.
+
+* **01 · Contexte d'usage**
+Se connecte le soir sur son smartphone dans les transports ou chez elle avec une connexion 4G fluctuante, après une journée de travail dense.
+
+* **02 · Objectif**
+Trouver un atelier court et pratique (ex. HTML Sémantique ou CSS Moderne), compatible avec ses soirées, et identifier en moins de 30 secondes si le niveau et le format correspondent à son niveau débutant.
+
+* **03 · Aisance**
+À l'aise avec les usages numériques quotidiens sur mobile, mais vite découragée par le jargon technique opaque (*« stack »*, *« CI/CD »*, *« DOM asynchrone »*, *« pipelines »*).
+
+* **04 · Freins**
+Un formulaire d'enrôlement à rallonge nécessitant la création d'un compte avant de voir les détails, des tarifs cachés qui n'apparaissent qu'au moment de payer, ou des prérequis flous qui lui font craindre de se retrouver dépassée.
+
+* **05 · Contraintes d'accès (obligatoire à l'EC01)**
+Consulte son téléphone en marchant ou dans les rames de métro avec une luminosité changeante : les textes en contraste faible (< 4,5:1), les polices trop fines et les cibles tactiles trop petites (< 44 px) rendent la navigation impossible.
+
+* **Sur quoi il repose (sourcé)**
+Hypothèse assumée basée sur le baromètre des profils en reconversion web (Grande École du Numérique 2024) et observation de 3 apprenants débutants consultant des formations sur smartphone dans les transports.
+
+* **Décisions d'interface tranchées :**
+1. Afficher systématiquement le badge de niveau (*« Débutant »*), le tarif et la durée directement sur la vignette de l'atelier sans avoir à ouvrir une modale ou un nouvel onglet.
+2. Inscription allégée dans une modale accessible `<dialog>` en 3 champs maximum plutôt qu'une redirection vers une page lourde.
+
+* **Idée abandonnée (qui dérange) :**
+Abandon de la vidéo promotionnelle en autoplay dans le Hero banner, car elle consomme le forfait 4G mobile de Maya et ralentit le chargement.
+
+
+---
+
+### Persona 2 · Le Formateur (Officier Instructeur)
+
+**Profil :** Thomas, 37 ans, Développeur Web Senior & Formateur indépendant.
+
+* **01 · Contexte d'usage**
+Se connecte sur son ordinateur portable entre deux sprints de développement ou le week-end ; il dispose de créneaux restreints et veut rentabiliser son temps de transmission sans lourdeur administrative.
+
+* **02 · Objectif**
+Proposer un module technique pointu (ex. Performance Web, Architecture Backend ou CSS Grid), fixer ses jauges de participants et s'assurer que les apprenants inscrits respectent bien les prérequis techniques annoncés.
+
+* **03 · Aisance**
+Excellente maîtrise des environnements informatiques, des outils en ligne de commande et des interfaces modernes ; habitué aux documentations techniques et exigeant sur la cohérence des outils.
+
+* **04 · Freins**
+Une plateforme fermée imposant un processus de validation pédagogique lourd, l'absence de mise en valeur de son expertise (pas de page ou carte de présentation dédiée), ou l'obligation de gérer manuellement les aspects logistiques et les paiements.
+
+* **05 · Contraintes d'accès (obligatoire à l'EC01)**
+Navigue quasi exclusivement au clavier (touche `Tab`, raccourcis) ; sensible aux interfaces sans focus visible, aux pièges au clavier et aux contrastes trop faibles sur grand écran.
+
+* **Sur quoi il repose (sourcé)**
+Entretiens qualitatifs menés avec 2 formateurs indépendants intervenant dans les écoles du web (recueil des attentes sur la visibilité de leur expertise et la gestion de leur calendrier).
+
+* **Décisions d'interface tranchées :**
+1. Navigation 100 % au clavier garantie avec indicateur `:focus-visible` contrasté (3:1 minimum, 3 px) et fermeture systématique à la touche `Échap`.
+2. Section dédiée « Équipe pédagogique » sur la page d'accueil avec profil complet, photo accessible (`alt` informatif) et spécialités.
+
+* **Idée abandonnée (qui dérange) :**
+Abandon du menu accordéon replié sur desktop : Thomas exige une vue directe sur toutes les sections sans clics superflus.
+
+
+---
+
+### User Journey d'Inscription (Maya, Apprenante)
+
+| Étape | Point de contact | Action | Attente | Point de Douleur | Décision d'interface |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **01. Découverte** | Réseau social &rarr; Landing page TrekHub | Clique sur un lien et arrive sur la page d'accueil sur mobile. | Comprendre en 10 secondes à qui s'adresse le service. | **Douleur 1 :** Accroche abstraite et vocabulaire nébuleux ; Maya a peur de ne pas être au niveau. | **Décision 1 :** Titre explicite (*« Formations Web pour Débutants & Reconversion »*) et bouton d'action vers les ateliers d'initiation. |
+| **02. Exploration** | Catalogue des Ateliers (`#ateliers`) | Fait défiler les cartes d'ateliers sur son smartphone. | Repérer en un coup d'œil l'atelier d'initiation et les horaires. | **Douleur 2 :** Impossible de filtrer par créneau (soirée) et absence des badges de niveau sur les vignettes. | **Décision 2 :** Badges de niveau (*« Débutant »*), durée (*« 2h en soirée »*) et tarif clair (*120 €*) affichés directement sur la carte. |
+| **03. Décision** | Carte d'atelier & bouton d'action | Lit le descriptif de l'atelier *« HTML Sémantique »*. | Confirmer le programme et les prérequis avant de s'engager. | **Douleur 3 :** Redirection vers une page formulaire externe sans rappel de l'atelier ni du tarif. | **Décision 3 :** Modale native `<dialog>` pré-remplissant l'intitulé de l'atelier et son récapitulatif. |
+| **04. Inscription** | Modale d'inscription `<dialog>` | Saisit son nom et courriel d'une seule main. | Inscription en moins d'une minute sans mot de passe complexe d'emblée. | **Douleur 4 :** Champs vidés en cas d'erreur ou message d'erreur illisible en plein soleil. | **Décision 4 :** Validation au fil de la saisie (`input`), messages reliés avec `aria-describedby`, conservation des données et cibles tactiles de 48px. |
+| **05. Confirmation** | Écran de confirmation & Courriel | Reçoit la validation immédiate et consulte sa boîte mail. | Savoir que sa place est réservée et avoir les accès. | **Douleur 5 :** Simple mention *« Inscription enregistrée »* sans date, lien visio ni calendrier. | **Décision 5 :** Bouton *« Ajouter à mon calendrier »* et courriel instantané avec lien d'accès et prérequis. |
+
+
+---
+
+### Confrontation avec la Landing Page FM01 actuelle (Ce que le parcours condamne)
+
+1. **Les cartes ateliers incomplètes (`.workshop-item`) :** Ne mentionnent ni prix, ni niveau, ni durée. Condamné par Maya.
+2. **La rupture de navigation (`href="inscription.html"`) :** Redirige vers une autre page au lieu d'ouvrir une modale rapide `<dialog>`. Condamné par Maya.
+3. **Le focus clavier par défaut du navigateur :** Pas de style `:focus-visible` contrasté à 3:1. Condamné par Thomas.
+4. **L'absence de filtrage :** Oblige à tout lire sur mobile. Condamné par Maya.
