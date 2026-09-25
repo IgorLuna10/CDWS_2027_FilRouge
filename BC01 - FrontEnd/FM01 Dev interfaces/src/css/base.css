@@ -1,0 +1,599 @@
+/* ==========================================================================
+   TREKHUB / SKILLHUB - STYLES DE BASE & COMPOSANTS PARTAGÉS
+   src/css/base.css
+   ========================================================================== */
+
+@import url('jetons.css');
+
+/* --------------------------------------------------------------------------
+   1. POLICES HÉBERGÉES (MONTSERRAT REGULAR & BOLD)
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/polices/montserrat-v31-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/polices/montserrat-v31-latin-700.woff2') format('woff2');
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET UNIVERSEL & CONTRÔLE ZÉRO DÉBORDEMENT
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%; /* 1rem = 16px */
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* Compense la hauteur du header sticky pour les ancres */
+}
+
+/* Évite le masquage des titres sous le header lors du clic sur les liens d'ancres */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+
+  /* Structure globale en Grid mono-colonne Mobile-First */
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Médias réactifs */
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHIE GLOBALE
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  color: var(--color-text-white);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  text-align: center;
+}
+
+p {
+  color: var(--color-text-muted);
+  max-width: var(--paragraph-max);
+  margin-inline: auto;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-primary-hover);
+}
+
+/* Focus visible pour accessibilité clavier */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Titre de section stylisé */
+section h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  display: block;
+  width: 3.5rem;
+  height: 0.25rem;
+  background-color: var(--color-primary);
+  margin: var(--space-2) auto 0;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   4. LIEN D'ÉVITEMENT ACCESSIBILITÉ (SKIP LINK)
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  padding: var(--space-2) var(--space-4);
+  font-weight: var(--font-bold);
+  z-index: 1000;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top var(--transition-base);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   5. EN-TÊTE ET NAVIGATION (HEADER / NAV)
+   -------------------------------------------------------------------------- */
+header {
+  grid-area: header;
+  width: 100%;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.header-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.header-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+  min-height: var(--touch-target-min);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  transition: transform var(--transition-base);
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-icon {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Bouton Hamburger pour mobile */
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu de navigation */
+nav {
+  width: 100%;
+  display: none; /* Masqué sur mobile par défaut si JS activé */
+}
+
+/* Si ouvert sur mobile ou par défaut */
+nav.is-open,
+nav:not(.js-enabled) {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+nav a {
+  color: var(--color-text);
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-3);
+  min-height: var(--touch-target-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  width: 100%;
+  transition: color var(--transition-base), background-color var(--transition-base);
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--color-primary);
+  background-color: rgba(72, 229, 194, 0.1);
+}
+
+nav a[aria-current="page"] {
+  color: var(--color-primary);
+  background-color: rgba(72, 229, 194, 0.15);
+  border-left: 3px solid var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   6. CONTENU PRINCIPAL GÉNÉRIQUE (MAIN)
+   -------------------------------------------------------------------------- */
+main {
+  grid-area: main;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   7. COMPOSANTS RÉUTILISABLES (BOUTONS, BADGES, CARTES)
+   -------------------------------------------------------------------------- */
+/* Boutons avec cible tactile >= 44px */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-bold);
+  font-size: var(--text-base);
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+  transition: all var(--transition-base);
+  text-align: center;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-text-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+  border-color: var(--color-border);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text-dark);
+}
+
+.btn-accent:hover,
+.btn-accent:focus-visible {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-text-dark);
+}
+
+/* Badges de statuts & niveaux */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.badge-primary {
+  background-color: rgba(72, 229, 194, 0.15);
+  border-color: rgba(72, 229, 194, 0.4);
+  color: var(--color-primary);
+}
+
+.badge-accent {
+  background-color: rgba(255, 159, 28, 0.15);
+  border-color: rgba(255, 159, 28, 0.4);
+  color: var(--color-accent);
+}
+
+.badge-level-debutant {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: var(--color-success);
+}
+
+.badge-level-intermediaire {
+  background-color: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: var(--color-info);
+}
+
+.badge-level-avance {
+  background-color: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: var(--color-warning);
+}
+
+/* Cartes génériques */
+.card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* --------------------------------------------------------------------------
+   8. PIED DE PAGE (FOOTER)
+   -------------------------------------------------------------------------- */
+footer {
+  grid-area: footer;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+
+.footer-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-4);
+}
+
+.footer-links a {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-2);
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+footer p {
+  font-size: var(--text-sm);
+}
+
+/* --------------------------------------------------------------------------
+   9. NOTIFICATIONS & MODAL INTERACTIVE (VANILLA JS)
+   -------------------------------------------------------------------------- */
+.toast-notification {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-4);
+  left: var(--space-4);
+  max-width: 25rem;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-primary);
+  color: var(--color-text-white);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+.toast-notification.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Bouton Retour en haut flottant (Vanilla JS) */
+.back-to-top-btn {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility var(--transition-base), background-color var(--transition-base), color var(--transition-base);
+}
+
+.back-to-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+  transform: translateY(-3px);
+}
+
+.back-to-top-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   ENRICHISSEMENTS MULTI-ÉCRANS (POINTS DE RUPTURE EN EM)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   PALIER 2 : TABLETTE (min-width: 48em / 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 48em) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header-top {
+    width: auto;
+  }
+
+  .nav-toggle {
+    display: none; /* Hamburger masqué dès 768px */
+  }
+
+  nav {
+    display: block !important;
+    width: auto;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: var(--space-2);
+  }
+
+  nav a {
+    width: auto;
+  }
+
+  nav a[aria-current="page"] {
+    border-left: none;
+    border-bottom: 2px solid var(--color-primary);
+  }
+
+  .btn {
+    width: auto;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PALIER 3 : DESKTOP (min-width: 64em / 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 64em) {
+  main {
+    padding: var(--space-8) var(--space-6);
+    gap: var(--space-10);
+  }
+
+  section h2 {
+    font-size: var(--text-3xl);
+  }
+}

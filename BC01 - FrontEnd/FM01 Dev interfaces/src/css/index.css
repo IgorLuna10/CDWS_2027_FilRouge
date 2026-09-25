@@ -1,0 +1,309 @@
+/* ==========================================================================
+   TREKHUB / SKILLHUB - STYLES SPÉCIFIQUES PAGE D'ACCUEIL (LANDING PAGE)
+   src/css/index.css
+   ========================================================================== */
+
+@import url('base.css');
+
+/* --------------------------------------------------------------------------
+   1. SECTION ACCROCHE (HERO SECTION)
+   -------------------------------------------------------------------------- */
+#accroche {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+}
+
+#accroche h1 {
+  font-size: clamp(1.6rem, 5vw + 0.5rem, 3.25rem);
+  line-height: var(--leading-tight);
+  color: var(--color-text-white);
+  max-width: 100%;
+  word-break: break-word;
+}
+
+#accroche img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-height: 26rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+#accroche p {
+  font-size: var(--text-md);
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   2. SECTION VALEURS / DIRECTIVES (6 VALEURS EN 3x2)
+   -------------------------------------------------------------------------- */
+.valeurs {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr; /* 1 colonne sur mobile */
+  gap: var(--space-5);
+  justify-content: center;
+}
+
+.valeur {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.valeur:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+}
+
+.valeur-icon {
+  color: var(--color-primary);
+  margin: 0 auto;
+}
+
+.valeur h3 {
+  font-size: var(--text-lg);
+  color: var(--color-text-white);
+}
+
+/* --------------------------------------------------------------------------
+   3. SECTION ATELIERS (APERÇU ACCUEIL)
+   -------------------------------------------------------------------------- */
+.workshops-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-6);
+}
+
+.workshop-item {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  height: 100%;
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.workshop-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+}
+
+.workshop-item h3 {
+  font-size: var(--text-lg);
+  color: var(--color-text-white);
+}
+
+.workshop-item p {
+  flex-grow: 1;
+}
+
+.workshop-item .btn-workshop {
+  margin-top: auto;
+  width: 100%;
+}
+
+.workshops-more {
+  text-align: center;
+  margin-top: var(--space-6);
+}
+
+/* Ancres de navigation avec compensation de la barre sticky */
+#valeurs,
+#ateliers,
+#formateurs,
+#inscription {
+  scroll-margin-top: 5rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. SECTION FORMATEURS (ÉQUIPE PÉDAGOGIQUE)
+   -------------------------------------------------------------------------- */
+#formateurs {
+  width: 100%;
+}
+
+.instructors-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr; /* 1 colonne sur mobile */
+  gap: var(--space-5);
+  justify-content: center;
+}
+
+.instructor-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.instructor-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+.instructor-card img {
+  border-radius: var(--radius-full);
+  border: 3px solid var(--color-primary);
+  width: 7.5rem;
+  height: 7.5rem;
+  object-fit: cover;
+  margin-bottom: var(--space-2);
+}
+
+.instructor-card h3 {
+  font-size: var(--text-lg);
+  color: var(--color-text-white);
+}
+
+.instructor-card .role {
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-1);
+}
+
+.instructor-card p {
+  font-size: var(--text-sm);
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTION INSCRIPTION RAPIDE (ACCUEIL)
+   -------------------------------------------------------------------------- */
+#inscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#inscription form {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  text-align: left;
+}
+
+#inscription label {
+  display: block;
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-1);
+  color: var(--color-text-white);
+}
+
+#inscription input,
+#inscription select,
+#inscription textarea {
+  width: 100%;
+  min-height: var(--touch-target-min);
+  padding: 0.65rem 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--text-base);
+  transition: border-color var(--transition-base), outline var(--transition-base);
+}
+
+#inscription input:focus,
+#inscription select:focus,
+#inscription textarea:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+#inscription button[type="submit"] {
+  width: 100%;
+  min-height: var(--touch-target-min);
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-bold);
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: background-color var(--transition-base), transform var(--transition-fast);
+  padding: var(--space-3) var(--space-6);
+}
+
+#inscription button[type="submit"]:hover,
+#inscription button[type="submit"]:focus-visible {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   ENRICHISSEMENTS MEDIA QUERIES (POINTS DE RUPTURE EN EM)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   PALIER 2 : TABLETTE (min-width: 48em / 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 48em) {
+  #valeurs,
+  #ateliers,
+  #formateurs,
+  #inscription {
+    scroll-margin-top: 5rem;
+  }
+
+  .valeurs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .workshop-item .btn-workshop {
+    width: auto;
+  }
+
+  .instructors-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PALIER 3 : DESKTOP (min-width: 64em / 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 64em) {
+  .instructors-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

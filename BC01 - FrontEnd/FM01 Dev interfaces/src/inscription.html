@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription aux Ateliers | TrekHub</title>
+    <meta name="description" content="Inscrivez-vous aux ateliers de perfectionnement web TrekHub : HTML, CSS, JavaScript, DevOps et IA." />
+
+    <!-- Préchargement de la police Montserrat 700 -->
+    <link rel="preload" href="assets/polices/montserrat-v31-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Feuilles de style & Icône du site -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/trekhub-logo.svg" />
+    <link rel="stylesheet" href="css/inscription.css" />
+
+    <!-- Scripts différés (defer) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- Lien d'évitement accessibilité -->
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="header-top">
+                <a href="index.html" class="logo" aria-label="TrekHub - Retour à l'accueil">
+                    <img src="assets/images/trekhub-logo.svg" alt="" class="logo-icon" width="32" height="32" />
+                    <span>TrekHub</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu de navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav id="main-nav" aria-label="Navigation principale">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#valeurs">Directives</a></li>
+                    <li><a href="ateliers.html">Catalogue Ateliers</a></li>
+                    <li><a href="index.html#formateurs">L'Équipe</a></li>
+                    <li><a href="inscription.html" aria-current="page">Rejoindre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- En-tête de page -->
+        <header class="register-header">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="index.html">Accueil</a> &rsaquo; <span>Inscription</span>
+            </nav>
+            <h1>Rejoindre l'Équipage TrekHub</h1>
+            <p>
+                Complétez votre formulaire de candidature pour réserver votre siège dans nos ateliers d'ingénierie web.
+            </p>
+        </header>
+
+        <div class="register-layout">
+            <!-- Formulaire d'inscription accessible -->
+            <form id="registration-form" class="register-form" novalidate>
+                
+                <!-- Étape 1 : Coordonnées -->
+                <fieldset>
+                    <legend>1. Coordonnées de l'apprenant</legend>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reg-nom">Nom de famille <span class="required-star" aria-hidden="true">*</span></label>
+                            <input type="text" id="reg-nom" name="nom" required autocomplete="family-name" placeholder="Ex: Picard" />
+                            <span class="field-error" id="err-nom">Veuillez renseigner votre nom.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-prenom">Prénom <span class="required-star" aria-hidden="true">*</span></label>
+                            <input type="text" id="reg-prenom" name="prenom" required autocomplete="given-name" placeholder="Ex: Jean-Luc" />
+                            <span class="field-error" id="err-prenom">Veuillez renseigner votre prénom.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reg-email">Adresse e-mail <span class="required-star" aria-hidden="true">*</span></label>
+                            <input type="email" id="reg-email" name="email" required autocomplete="email" placeholder="jean-luc@starfleet.org" />
+                            <span class="field-error" id="err-email">Veuillez renseigner une adresse e-mail valide.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-telephone">Téléphone (facultatif)</label>
+                            <input type="tel" id="reg-telephone" name="telephone" autocomplete="tel" placeholder="06 12 34 56 78" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Étape 2 : Choix de la mission -->
+                <fieldset>
+                    <legend>2. Choix de l'atelier &amp; session</legend>
+
+                    <div class="form-group">
+                        <label for="atelier-select">Atelier souhaité <span class="required-star" aria-hidden="true">*</span></label>
+                        <select id="atelier-select" name="atelier" required>
+                            <option value="">-- Sélectionnez votre atelier spatial --</option>
+                            <option value="html">HTML Sémantique &amp; Accessibilité Universelle (12h)</option>
+                            <option value="css">CSS Moderne &amp; Interfaces Évolutives (16h)</option>
+                            <option value="js">JavaScript Asynchrone &amp; APIs Web (20h)</option>
+                            <option value="backend">Architecture Backend &amp; APIs Résilientes (24h)</option>
+                            <option value="devops">DevOps, Conteneurs Docker &amp; CI/CD (18h)</option>
+                            <option value="perf">Performance Web &amp; Optimisation Médias (10h)</option>
+                        </select>
+                        <span class="field-error" id="err-atelier">Veuillez sélectionner un atelier.</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reg-session">Créneau souhaité <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="reg-session" name="session" required>
+                                <option value="matin">Promotion Matinale (09h00 - 13h00)</option>
+                                <option value="soir">Promotion Soirée (18h30 - 21h30)</option>
+                                <option value="weekend">Session Intensive Weekend</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-format">Format d'apprentissage</label>
+                            <select id="reg-format" name="format">
+                                <option value="remote">Distanciel interactif (Direct streaming &amp; lab)</option>
+                                <option value="presential">Présentiel à bord du Hub</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Étape 3 : Profil & Accord -->
+                <fieldset>
+                    <legend>3. Profil &amp; Engagements</legend>
+
+                    <div class="form-group">
+                        <label for="reg-motivation">Vos objectifs pour cet atelier</label>
+                        <textarea id="reg-motivation" name="motivation" placeholder="Décrivez en quelques mots vos attentes professionnelles ou le projet que vous souhaitez bâtir..."></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="reg-rgpd" name="rgpd" required />
+                        <label for="reg-rgpd">
+                            J'accepte que mes données soient traitées par TrekHub exclusivement pour la gestion de ma candidature. Conformément au RGPD, aucune donnée n'est cédée à des tiers. <span class="required-star" aria-hidden="true">*</span>
+                        </label>
+                    </div>
+                    <span class="field-error" id="err-rgpd">Veuillez accepter les conditions pour poursuivre.</span>
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                    Valider mon embarquement &rarr;
+                </button>
+            </form>
+
+            <!-- Encart récapitulatif ("Pass d'embarquement") -->
+            <aside class="summary-card" aria-label="Récapitulatif de session">
+                <div class="summary-header">
+                    <span class="badge badge-accent">Pass Découverte</span>
+                    <h2>Votre Parcours</h2>
+                    <p class="field-hint">Mise à jour en direct selon votre sélection</p>
+                </div>
+
+                <ul class="summary-list">
+                    <li class="summary-item">
+                        <span>Cadet :</span>
+                        <strong id="summary-cadet-name">Non assigné</strong>
+                    </li>
+                    <li class="summary-item">
+                        <span>Atelier :</span>
+                        <strong id="summary-atelier-name">Non sélectionné</strong>
+                    </li>
+                    <li class="summary-item">
+                        <span>Durée estimée :</span>
+                        <strong id="summary-duration">--</strong>
+                    </li>
+                    <li class="summary-item">
+                        <span>Créneau :</span>
+                        <strong id="summary-session">Promotion Matinale (09h-13h)</strong>
+                    </li>
+                    <li class="summary-item">
+                        <span>Format :</span>
+                        <strong id="summary-format">Distanciel interactif</strong>
+                    </li>
+                    <li class="summary-item">
+                        <span>Places disponibles :</span>
+                        <strong style="color: var(--color-success);">6 / 12 sièges</strong>
+                    </li>
+                </ul>
+
+                <div class="summary-banner">
+                    🚀 <strong>Inclus avec chaque atelier :</strong>
+                    Mentorat individuel hebdomadaire, accès 24/7 au lab de code, et certification de compétences délivrée en fin de parcours.
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Modal de confirmation interactive (gérée en Vanilla JS) avec Pass Cadet -->
+    <div id="confirmation-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-icon" aria-hidden="true">🚀</div>
+            <h2 id="modal-title">Embarquement Confirmé !</h2>
+            <p id="modal-message">
+                Félicitations, votre dossier d'incorporation a été validé par le commandement TrekHub.
+                Voici votre Pass d'Accès Officiel de l'Académie :
+            </p>
+            
+            <!-- Carte d'embarquement dynamique générée en JS -->
+            <div id="cadet-badge-container" style="width: 100%;"></div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn btn-primary" id="modal-print-btn">🖨️ Imprimer mon Pass</button>
+                <button type="button" class="btn" id="modal-close-btn">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 TrekHub. Bâtir un web ouvert, accessible et tourné vers l'avenir.</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="ateliers.html">Catalogue Ateliers</a></li>
+                <li><a href="inscription.html" aria-current="page">Formulaire d'Inscription</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bouton flottant Retour en haut de page -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Retour en haut de page" title="Retour en haut">&uarr;</button>
+</body>
+
+</html>

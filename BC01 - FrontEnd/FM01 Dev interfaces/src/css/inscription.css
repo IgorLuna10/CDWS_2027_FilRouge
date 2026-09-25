@@ -1,0 +1,472 @@
+/* ==========================================================================
+   TREKHUB / SKILLHUB - STYLES PAGE INSCRIPTION
+   src/css/inscription.css
+   ========================================================================== */
+
+@import url('base.css');
+
+/* --------------------------------------------------------------------------
+   1. EN-TÊTE DE LA PAGE D'INSCRIPTION
+   -------------------------------------------------------------------------- */
+.register-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.register-header h1 {
+  font-size: clamp(1.85rem, 5vw + 0.5rem, 3rem);
+}
+
+.breadcrumb {
+  display: inline-flex;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   2. MISE EN PAGE DU FORMULAIRE (GRILLE FORMULAIRE + RÉCAPITULATIF)
+   -------------------------------------------------------------------------- */
+.register-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 colonne sur mobile */
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* Formulaire principal */
+.register-form {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   3. FIELDSETS & LÉGENDES ACCESSIBLES
+   -------------------------------------------------------------------------- */
+fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+legend {
+  font-size: var(--text-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  padding: 0 var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Lignes et groupes de champs */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text-white);
+  display: flex;
+  justify-content: space-between;
+}
+
+.required-star {
+  color: var(--color-accent);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  min-height: var(--touch-target-min);
+  padding: 0.65rem 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-white);
+  font-family: inherit;
+  font-size: var(--text-base);
+  transition: border-color var(--transition-base), outline var(--transition-base), box-shadow var(--transition-base);
+}
+
+textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 10px rgba(72, 229, 194, 0.2);
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--color-danger) !important;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.25);
+}
+
+/* Messages d'aide et d'erreurs */
+.field-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.field-error {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+  display: none;
+  font-weight: var(--font-semibold);
+}
+
+.field-error.is-visible {
+  display: block;
+}
+
+/* Cases à cocher personnalisées & accessibles */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  min-height: auto;
+}
+
+.checkbox-group label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  line-height: var(--leading-normal);
+}
+
+/* --------------------------------------------------------------------------
+   4. CARTE RÉCAPITULATIF ("PASS D'EMBARQUEMENT")
+   -------------------------------------------------------------------------- */
+.summary-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: sticky;
+  top: 6rem;
+}
+
+.summary-header {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-4);
+}
+
+.summary-header h2 {
+  font-size: var(--text-xl);
+  color: var(--color-text-white);
+  text-align: left;
+  margin-bottom: var(--space-1);
+}
+
+.summary-header h2::after {
+  display: none;
+}
+
+.summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+  border-bottom: 1px dashed var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.summary-item strong {
+  color: var(--color-primary);
+}
+
+.summary-banner {
+  background-color: rgba(72, 229, 194, 0.08);
+  border: 1px solid rgba(72, 229, 194, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text);
+  line-height: var(--leading-relaxed);
+}
+
+/* --------------------------------------------------------------------------
+   5. MODAL DE CONFIRMATION INTERACTIVE (VANILLA JS)
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(7, 12, 27, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  max-width: 36rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(20px);
+  transition: transform var(--transition-smooth);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-backdrop.is-open .modal-content {
+  transform: translateY(0);
+}
+
+.modal-icon {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   6. CARTE D'EMBARQUEMENT SPATIALE CADET (STARFLEET BOARDING PASS)
+   -------------------------------------------------------------------------- */
+.cadet-badge-card {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(16, 26, 56, 0.95), rgba(7, 12, 27, 0.95));
+  border: 1px solid var(--color-border);
+  border-left: 6px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-glow), inset 0 0 20px rgba(72, 229, 194, 0.08);
+  position: relative;
+  text-align: left;
+}
+
+.cadet-badge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-3);
+}
+
+.cadet-badge-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.cadet-registry-id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  background: rgba(255, 183, 3, 0.12);
+  border: 1px solid var(--color-accent);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.08em;
+  font-weight: var(--font-bold);
+}
+
+.cadet-badge-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 32em) {
+  .cadet-badge-body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cadet-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cadet-info-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.cadet-info-value {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text-white);
+}
+
+.cadet-badge-footer {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.cadet-barcode {
+  height: 22px;
+  width: 120px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-primary) 0,
+    var(--color-primary) 2px,
+    transparent 2px,
+    transparent 4px,
+    var(--color-primary) 4px,
+    var(--color-primary) 7px,
+    transparent 7px,
+    transparent 9px,
+    var(--color-primary) 9px,
+    var(--color-primary) 13px,
+    transparent 13px,
+    transparent 15px
+  );
+  opacity: 0.85;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Impression du Pass */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .modal-backdrop,
+  .modal-backdrop.is-open {
+    position: static !important;
+    background: #fff !important;
+    visibility: visible !important;
+    padding: 0 !important;
+  }
+  .modal-content,
+  .modal-content * {
+    visibility: visible !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-color: #000 !important;
+  }
+  .modal-actions,
+  .modal-icon,
+  header,
+  footer {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   ENRICHISSEMENTS MEDIA QUERIES (POINTS DE RUPTURE EN EM)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   PALIER 2 : TABLETTE (min-width: 48em / 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 48em) {
+  .register-form {
+    padding: var(--space-8);
+  }
+
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row.full {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PALIER 3 : DESKTOP (min-width: 64em / 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 64em) {
+  .register-layout {
+    grid-template-columns: 1.8fr 1fr;
+    gap: var(--space-10);
+  }
+}

@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalogue des Ateliers | TrekHub</title>
+    <meta name="description" content="Explorez l'ensemble des ateliers de formation web TrekHub : HTML, CSS, JavaScript, DevOps, IA et Performance." />
+
+    <!-- Préchargement de la police Montserrat 700 -->
+    <link rel="preload" href="assets/polices/montserrat-v31-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Feuilles de style & Icône du site -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/trekhub-logo.svg" />
+    <link rel="stylesheet" href="css/ateliers.css" />
+
+    <!-- Scripts différés (defer) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- Lien d'évitement accessibilité -->
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="header-top">
+                <a href="index.html" class="logo" aria-label="TrekHub - Retour à l'accueil">
+                    <img src="assets/images/trekhub-logo.svg" alt="" class="logo-icon" width="32" height="32" />
+                    <span>TrekHub</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu de navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav id="main-nav" aria-label="Navigation principale">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#valeurs">Directives</a></li>
+                    <li><a href="ateliers.html" aria-current="page">Catalogue Ateliers</a></li>
+                    <li><a href="index.html#formateurs">L'Équipe</a></li>
+                    <li><a href="inscription.html">Rejoindre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- En-tête du catalogue -->
+        <header class="catalog-header">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="index.html">Accueil</a> &rsaquo; <span>Ateliers</span>
+            </nav>
+            <h1>Catalogue des Ateliers Spatiaux</h1>
+            <p>
+                Des formations immersives pour acquérir des compétences techniques durables,
+                accessibles et respectueuses des standards de l'écosystème web moderne.
+            </p>
+        </header>
+
+        <!-- Barre de filtres et recherche instantanée -->
+        <section aria-label="Outils de filtrage des ateliers">
+            <div class="filters-toolbar">
+                <div class="filter-tags" role="toolbar" aria-label="Filtrer par domaine">
+                    <button class="filter-btn active" data-category="all" aria-pressed="true">Tous les ateliers</button>
+                    <button class="filter-btn" data-category="frontend" aria-pressed="false">Frontend</button>
+                    <button class="filter-btn" data-category="backend" aria-pressed="false">Backend</button>
+                    <button class="filter-btn" data-category="devops" aria-pressed="false">DevOps &amp; Cloud</button>
+                    <button class="filter-btn" data-category="data" aria-pressed="false">Data &amp; IA</button>
+                    <button class="filter-btn" data-category="perf" aria-pressed="false">Performance</button>
+                </div>
+                <div class="search-box">
+                    <input 
+                        type="search" 
+                        id="workshop-search" 
+                        class="search-input" 
+                        placeholder="Rechercher par mot-clé..." 
+                        aria-label="Rechercher un atelier par mot-clé" 
+                    />
+                </div>
+                <div class="results-info" aria-live="polite">
+                    <span id="results-count" class="results-count">Affichage de 6 ateliers sur 6</span>
+                    <button id="reset-filters-btn" class="btn-link" style="display: none;">Réinitialiser les filtres</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grille des ateliers -->
+        <section aria-label="Liste complète des ateliers">
+            <div class="catalog-grid" id="catalog-grid">
+
+                <!-- 1. HTML Sémantique -->
+                <article class="catalog-card" data-category="frontend perf">
+                    <div>
+                        <div class="card-badges">
+                            <span class="badge badge-primary">Frontend</span>
+                            <span class="badge badge-level-debutant">Niveau Initié</span>
+                        </div>
+                        <div class="card-header">
+                            <h2>HTML Sémantique &amp; Accessibilité</h2>
+                        </div>
+                        <p class="card-summary">
+                            Concevez des pages web robustes, pérennes et inclusivement adaptées aux outils de navigation d'assistance et lecteurs d'écran.
+                        </p>
+                    </div>
+
+                    <ul class="card-meta">
+                        <li class="meta-item">⏱️ Durée : <strong>12 heures (3 sessions)</strong></li>
+                        <li class="meta-item">🎯 Prérequis : <strong>Bases de la navigation web</strong></li>
+                    </ul>
+
+                    <div class="card-instructor">
+                        <img src="assets/images/Kirk/Kirk 400w.webp" alt="Portrait de Kirk" width="40" height="40" loading="lazy" />
+                        <div class="instructor-info">
+                            <span class="instructor-name">Kirk</span>
+                            <span class="instructor-title">Lead Frontend &amp; A11y</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="inscription.html?atelier=html" class="btn btn-primary">S'inscrire à cet atelier</a>
+                    </div>
+                </article>
+
+                <!-- 2. CSS Moderne -->
+                <article class="catalog-card" data-category="frontend">
+                    <div>
+                        <div class="card-badges">
+                            <span class="badge badge-primary">Frontend</span>
+                            <span class="badge badge-level-intermediaire">Niveau Confirmé</span>
+                        </div>
+                        <div class="card-header">
+                            <h2>CSS Moderne &amp; Interfaces Évolutives</h2>
+                        </div>
+                        <p class="card-summary">
+                            Maîtrisez Flexbox, CSS Grid, les variables CSS et la typographie fluide sans framework externe pour des interfaces 100% responsives.
+                        </p>
+                    </div>
+
+                    <ul class="card-meta">
+                        <li class="meta-item">⏱️ Durée : <strong>16 heures (4 sessions)</strong></li>
+                        <li class="meta-item">🎯 Prérequis : <strong>HTML sémantique de base</strong></li>
+                    </ul>
+
+                    <div class="card-instructor">
+                        <img src="assets/images/Kirk/Kirk 400w.webp" alt="Portrait de Kirk" width="40" height="40" loading="lazy" />
+                        <div class="instructor-info">
+                            <span class="instructor-name">Kirk</span>
+                            <span class="instructor-title">Lead Frontend &amp; A11y</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="inscription.html?atelier=css" class="btn btn-primary">S'inscrire à cet atelier</a>
+                    </div>
+                </article>
+
+                <!-- 3. JavaScript Asynchrone -->
+                <article class="catalog-card" data-category="frontend backend">
+                    <div>
+                        <div class="card-badges">
+                            <span class="badge badge-accent">Fullstack</span>
+                            <span class="badge badge-level-intermediaire">Niveau Confirmé</span>
+                        </div>
+                        <div class="card-header">
+                            <h2>JavaScript Asynchrone &amp; APIs Web</h2>
+                        </div>
+                        <p class="card-summary">
+                            Programmez des applications interactives et fluides grâce aux Promesses, async/await, l'API Fetch et la manipulation réactive du DOM.
+                        </p>
+                    </div>
+
+                    <ul class="card-meta">
+                        <li class="meta-item">⏱️ Durée : <strong>20 heures (5 sessions)</strong></li>
+                        <li class="meta-item">🎯 Prérequis : <strong>Bases de syntaxe JavaScript</strong></li>
+                    </ul>
+
+                    <div class="card-instructor">
+                        <img src="assets/images/Picard/Picard 400w.webp" alt="Portrait de Picard" width="40" height="40" loading="lazy" />
+                        <div class="instructor-info">
+                            <span class="instructor-name">Picard</span>
+                            <span class="instructor-title">Architecte Backend</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="inscription.html?atelier=js" class="btn btn-primary">S'inscrire à cet atelier</a>
+                    </div>
+                </article>
+
+                <!-- 4. Architecture Backend -->
+                <article class="catalog-card" data-category="backend">
+                    <div>
+                        <div class="card-badges">
+                            <span class="badge badge-primary">Backend</span>
+                            <span class="badge badge-level-avance">Niveau Avancé</span>
+                        </div>
+                        <div class="card-header">
+                            <h2>Architecture Backend &amp; APIs Résilientes</h2>
+                        </div>
+                        <p class="card-summary">
+                            Concevez des serveurs robustes, des architectures modulaires et optimisez vos bases de données pour faire face aux montées en charge.
+                        </p>
+                    </div>
+
+                    <ul class="card-meta">
+                        <li class="meta-item">⏱️ Durée : <strong>24 heures (6 sessions)</strong></li>
+                        <li class="meta-item">🎯 Prérequis : <strong>Connaissance d'un langage serveur</strong></li>
+                    </ul>
+
+                    <div class="card-instructor">
+                        <img src="assets/images/Picard/Picard 400w.webp" alt="Portrait de Picard" width="40" height="40" loading="lazy" />
+                        <div class="instructor-info">
+                            <span class="instructor-name">Picard</span>
+                            <span class="instructor-title">Architecte Backend</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="inscription.html?atelier=backend" class="btn btn-primary">S'inscrire à cet atelier</a>
+                    </div>
+                </article>
+
+                <!-- 5. DevOps & Cloud -->
+                <article class="catalog-card" data-category="devops">
+                    <div>
+                        <div class="card-badges">
+                            <span class="badge badge-accent">DevOps</span>
+                            <span class="badge badge-level-avance">Niveau Avancé</span>
+                        </div>
+                        <div class="card-header">
+                            <h2>DevOps, Conteneurs &amp; CI/CD</h2>
+                        </div>
+                        <p class="card-summary">
+                            Automatisez vos tests, vos builds et vos déploiements continus grâce à Docker, les pipelines Git et les environnements Cloud sécurisés.
+                        </p>
+                    </div>
+
+                    <ul class="card-meta">
+                        <li class="meta-item">⏱️ Durée : <strong>18 heures (4 sessions)</strong></li>
+                        <li class="meta-item">🎯 Prérequis : <strong>Ligne de commande terminal</strong></li>
+                    </ul>
+
+                    <div class="card-instructor">
+                        <img src="assets/images/Spock/Spock 400w.webp" alt="Portrait de Spock" width="40" height="40" loading="lazy" />
+                        <div class="instructor-info">
+                            <span class="instructor-name">Spock</span>
+                            <span class="instructor-title">Ingénieur DevOps</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="inscription.html?atelier=devops" class="btn btn-primary">S'inscrire à cet atelier</a>
+                    </div>
+                </article>
+
+                <!-- 6. Performance Web -->
+                <article class="catalog-card" data-category="perf frontend">
+                    <div>
+                        <div class="card-badges">
+                            <span class="badge badge-primary">Performance</span>
+                            <span class="badge badge-level-debutant">Niveau Initié</span>
+                        </div>
+                        <div class="card-header">
+                            <h2>Performance Web &amp; Optimisation Médias</h2>
+                        </div>
+                        <p class="card-summary">
+                            Auditez et maximisez le score Lighthouse : conversion WebP, srcset, font-display, defer et maîtrise des Core Web Vitals (LCP, CLS, INP).
+                        </p>
+                    </div>
+
+                    <ul class="card-meta">
+                        <li class="meta-item">⏱️ Durée : <strong>10 heures (2 sessions)</strong></li>
+                        <li class="meta-item">🎯 Prérequis : <strong>Bases HTML &amp; CSS</strong></li>
+                    </ul>
+
+                    <div class="card-instructor">
+                        <img src="assets/images/Deanna/Deanna 400w.webp" alt="Portrait de Deanna" width="40" height="40" loading="lazy" />
+                        <div class="instructor-info">
+                            <span class="instructor-name">Deanna</span>
+                            <span class="instructor-title">Spécialiste IA &amp; Data</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="inscription.html?atelier=perf" class="btn btn-primary">S'inscrire à cet atelier</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="no-workshops-message" class="no-results" style="display: none;" role="status">
+                🚀 Aucun atelier ne correspond à votre filtre actuel. Réinitialisez vos critères de recherche.
+            </p>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 TrekHub. Bâtir un web ouvert, accessible et tourné vers l'avenir.</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="ateliers.html" aria-current="page">Catalogue Ateliers</a></li>
+                <li><a href="inscription.html">Formulaire d'Inscription</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bouton flottant Retour en haut de page -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Retour en haut de page" title="Retour en haut">&uarr;</button>
+</body>
+
+</html>

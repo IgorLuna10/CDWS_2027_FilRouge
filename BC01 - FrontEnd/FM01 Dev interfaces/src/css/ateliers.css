@@ -1,0 +1,290 @@
+/* ==========================================================================
+   TREKHUB / SKILLHUB - STYLES CATALOGUE DES ATELIERS
+   src/css/ateliers.css
+   ========================================================================== */
+
+@import url('base.css');
+
+/* --------------------------------------------------------------------------
+   1. EN-TÊTE DU CATALOGUE (HERO / INTRO)
+   -------------------------------------------------------------------------- */
+.catalog-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.catalog-header h1 {
+  font-size: clamp(1.85rem, 5vw + 0.5rem, 3rem);
+}
+
+.breadcrumb {
+  display: inline-flex;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   2. BARRE D'INTERACTION : RECHERCHE ET FILTRES DYNAMIQUES (JS READY)
+   -------------------------------------------------------------------------- */
+.filters-toolbar {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.search-box {
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  min-height: var(--touch-target-min);
+  padding: 0.75rem 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-white);
+  font-family: inherit;
+  font-size: var(--text-base);
+  transition: border-color var(--transition-base), outline var(--transition-base);
+}
+
+.search-input:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.filter-btn {
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  min-height: var(--touch-target-min);
+  display: inline-flex;
+  align-items: center;
+  transition: all var(--transition-base);
+}
+
+.filter-btn:hover {
+  color: var(--color-text-white);
+  border-color: var(--color-primary);
+}
+
+.filter-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+  border-color: var(--color-primary);
+  font-weight: var(--font-bold);
+}
+
+.results-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.results-count {
+  font-weight: var(--font-semibold);
+  color: var(--color-primary);
+  background-color: rgba(72, 229, 194, 0.08);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--text-sm);
+  padding: var(--space-1);
+}
+
+.btn-link:hover {
+  color: var(--color-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   3. GRILLE DU CATALOGUE & CARTES D'ATELIERS
+   -------------------------------------------------------------------------- */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 colonne sur mobile */
+  gap: var(--space-6);
+}
+
+.catalog-card.is-hidden {
+  display: none !important;
+}
+
+.catalog-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-5);
+  height: 100%;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.catalog-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.card-header h2 {
+  font-size: var(--text-xl);
+  text-align: left;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-2);
+  color: var(--color-text-white);
+}
+
+.card-header h2::after {
+  display: none; /* Pas de trait sous les titres de cartes */
+}
+
+.card-summary {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  margin-inline: 0;
+  text-align: left;
+}
+
+.card-meta {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.meta-item strong {
+  color: var(--color-text-white);
+}
+
+.card-instructor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.card-instructor img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-primary);
+  object-fit: cover;
+}
+
+.instructor-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.instructor-name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text-white);
+}
+
+.instructor-title {
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+}
+
+.card-footer {
+  margin-top: auto;
+}
+
+/* Message si aucun atelier ne correspond aux filtres */
+.no-results {
+  text-align: center;
+  padding: var(--space-8);
+  background-color: var(--color-card-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   ENRICHISSEMENTS MEDIA QUERIES (POINTS DE RUPTURE EN EM)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   PALIER 2 : TABLETTE (min-width: 48em / 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 48em) {
+  .filters-toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .search-box {
+    max-width: 20rem;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PALIER 3 : DESKTOP (min-width: 64em / 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 64em) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
